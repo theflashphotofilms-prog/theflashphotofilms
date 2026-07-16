@@ -2,6 +2,19 @@
 
 import { useEffect } from 'react';
 
+// Define the LayoutShift interface since it's not available in all TypeScript environments
+interface LayoutShift extends PerformanceEntry {
+  value?: number;
+  sources?: Array<any>;
+  hadRecentInput: boolean;
+}
+
+// Define the Navigation Timing interface
+interface NavigationTiming extends PerformanceEntry {
+  domContentLoadedEventEnd?: number;
+  fetchStart?: number;
+}
+
 const PerformanceMonitor = () => {
   useEffect(() => {
     // Core Web Vitals monitoring
@@ -18,9 +31,17 @@ const PerformanceMonitor = () => {
               console.log('FID:', eventEntry.processingStart - eventEntry.startTime);
             }
           } else if (entry.entryType === 'layout-shift') {
-            console.log('CLS:', entry.value);
+            // Type guard to safely access LayoutShift properties
+            if ('value' in entry && typeof (entry as any).value === 'number') {
+              const layoutShiftEntry = entry as LayoutShift;
+              console.log('CLS:', layoutShiftEntry.value);
+            }
           } else if (entry.entryType === 'navigation') {
-            console.log('FCP:', entry.domContentLoadedEventEnd - entry.fetchStart);
+            // Type guard to safely access Navigation Timing properties
+            const navEntry = entry as NavigationTiming;
+            if (navEntry.domContentLoadedEventEnd !== undefined && navEntry.fetchStart !== undefined) {
+              console.log('FCP:', navEntry.domContentLoadedEventEnd - navEntry.fetchStart);
+            }
           }
         });
       });
