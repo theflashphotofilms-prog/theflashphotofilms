@@ -1,0 +1,32 @@
+{
+  "name": "theflashphotofilms",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A Next.js application for The Flash Photo Films website",
+  "author": "Your Name <your.email@example.com>",
+  "homepage": "https://theflashphotofilms.com",
+  "license": "MIT",
+  "keywords": ["nextjs", "photography", "films", "portfolio"],
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "next": "^15.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/react": "^18.2.0",
+    "@types/node": "^20",
+    "@types/react-dom": "^18.2.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.0",
+    "eslint": "^8.52.0",
+    "eslint-config-next": "^15.0.0"
+  }
+}

@@ -1,0 +1,52 @@
+# Dependencies
+node_modules/
+
+# Production builds
+.next/
+out/
+
+# Environment variables
+.env*.local
+!.env.example
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# IDEs
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Coverage
+coverage/
+.nyc_output
+
+# Next.js
+dist/
+build/
+*.tsbuildinfo
+next-env.d.ts
+# Avoid issues with VS Code and Next.js
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/recommendations.json
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Database
+*.db
+*.db-journal
+
+# Storage
+.next/storage/
