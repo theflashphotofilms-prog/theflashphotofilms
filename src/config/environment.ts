@@ -20,8 +20,11 @@ const config = {
   },
 };
 
+// Type for our environment keys
+type EnvironmentKey = keyof typeof config;
+
 // Determine the current environment
-const getCurrentEnvironment = () => {
+const getCurrentEnvironment = (): EnvironmentKey => {
   if (process.env.NODE_ENV === 'production') {
     if (typeof window !== 'undefined') {
       // Client-side environment detection
@@ -34,7 +37,7 @@ const getCurrentEnvironment = () => {
       return process.env.VERCEL_ENV === 'preview' ? 'staging' : 'production';
     }
   }
-  return process.env.NODE_ENV || 'development';
+  return (process.env.NODE_ENV || 'development') as EnvironmentKey;
 };
 
 const currentEnv = getCurrentEnvironment();

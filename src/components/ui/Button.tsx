@@ -1,6 +1,6 @@
-import { ButtonHTMLAttributes, DetailedReactProps } from 'react';
+import { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
 
-interface ButtonProps extends DetailedReactProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
+interface ButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline';
   size?: 'sm' | 'md' | 'lg';
 }
