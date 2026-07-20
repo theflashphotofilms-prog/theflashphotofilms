@@ -97,23 +97,6 @@ const ContactForm = () => {
 
   return (
     <div className="max-w-2xl mx-auto">
-      <style jsx>{`
-        input[type="email"] {
-          -webkit-text-fill-color: #000 !important;
-        }
-        input[type="email"]:focus {
-          -webkit-text-fill-color: #000 !important;
-        }
-        input:-webkit-autofill,
-        input:-webkit-autofill:hover,
-        input:-webkit-autofill:focus,
-        input:-webkit-autofill:active {
-          -webkit-text-fill-color: #000 !important;
-          -webkit-box-shadow: 0 0 0 30px white inset !important;
-          box-shadow: 0 0 0 30px white inset !important;
-          transition: background-color 5000s ease-in-out 0s;
-        }
-      `}</style>
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg p-6">
         {submitSuccess && (
           <div className="mb-6 p-4 bg-green-50 text-green-700 rounded-md animate-fade-in">
@@ -155,7 +138,7 @@ const ContactForm = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 text-black"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 text-black autofill:text-black autofill:bg-white"
               placeholder="your.email@example.com"
             />
           </div>
@@ -216,16 +199,16 @@ const ContactForm = () => {
           <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
             Message *
           </label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-            rows={4}
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 text-black"
-            placeholder="Tell us about your event and requirements..."
-          ></textarea>
+            <textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+              rows={4}
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 text-black"
+              placeholder="Tell us about your event and requirements..."
+            ></textarea>
         </div>
 
         <button
