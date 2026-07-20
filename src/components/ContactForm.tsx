@@ -97,6 +97,23 @@ const ContactForm = () => {
 
   return (
     <div className="max-w-2xl mx-auto">
+      <style jsx>{`
+        input[type="email"] {
+          -webkit-text-fill-color: #000 !important;
+        }
+        input[type="email"]:focus {
+          -webkit-text-fill-color: #000 !important;
+        }
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+          -webkit-text-fill-color: #000 !important;
+          -webkit-box-shadow: 0 0 0 30px white inset !important;
+          box-shadow: 0 0 0 30px white inset !important;
+          transition: background-color 5000s ease-in-out 0s;
+        }
+      `}</style>
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg p-6">
         {submitSuccess && (
           <div className="mb-6 p-4 bg-green-50 text-green-700 rounded-md animate-fade-in">
