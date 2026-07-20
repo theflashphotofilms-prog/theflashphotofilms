@@ -7,6 +7,7 @@ const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    subject: '',  // Adding subject field to match API and live form
     phone: '',
     date: '',
     message: '',
@@ -43,12 +44,6 @@ const ContactForm = () => {
       return;
     }
 
-    if (!formData.phone.trim()) {
-      setSubmitError('Please enter your phone number');
-      setIsSubmitting(false);
-      return;
-    }
-
     if (!formData.message.trim()) {
       setSubmitError('Please enter a message');
       setIsSubmitting(false);
@@ -76,6 +71,7 @@ const ContactForm = () => {
       setFormData({
         name: '',
         email: '',
+        subject: '',  // Adding subject field to match API and live form
         phone: '',
         date: '',
         message: '',
@@ -147,8 +143,23 @@ const ContactForm = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           <div>
+            <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+              Subject
+            </label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              value={formData.subject}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 text-black"
+              placeholder="Subject of your inquiry"
+            />
+          </div>
+          
+          <div>
             <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-              Phone Number *
+              Phone Number
             </label>
             <input
               type="tel"
@@ -156,12 +167,13 @@ const ContactForm = () => {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              required
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 text-black autofill:text-black autofill:bg-white"
               placeholder="+91 XXXXXXXXXX"
             />
           </div>
-          
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           <div>
             <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-1">
               Wedding Date
