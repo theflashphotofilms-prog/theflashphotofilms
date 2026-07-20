@@ -97,7 +97,7 @@ const ContactForm = () => {
 
   return (
     <div className="max-w-2xl mx-auto">
-      {/* Styled-jsx removed temporarily to fix build issue. Styles related to autofill can be re-added later. */}
+      {/* Fixed text visibility issue - all inputs now have text-black class and email/phone/date inputs have autofill:text-black autofill:bg-white */}
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg p-6">
         {submitSuccess && (
           <div className="mb-6 p-4 bg-green-50 text-green-700 rounded-md animate-fade-in">
