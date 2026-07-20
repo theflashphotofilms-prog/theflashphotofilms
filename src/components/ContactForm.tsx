@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { trackContactLead } from '@/lib/conversionTracking';
+import { trackContactLead } from '@/lib/conversionTracking'; // Fixed import for production build
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
